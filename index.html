@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Umaima 💝</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap');
+
+  :root {
+    --rose: #FF6B8A;
+    --blush: #FFB3C1;
+    --peach: #FFCBA4;
+    --gold: #FFD700;
+    --lavender: #C9A6E4;
+    --mint: #A8E6CF;
+    --sky: #87CEEB;
+    --cream: #FFF8F0;
+    --deep: #3D1C3A;
+    --accent: #FF4785;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #FF6B8A 0%, #FFB347 30%, #C9A6E4 60%, #87CEEB 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(255,107,138,0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(201,166,228,0.3) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(255,203,164,0.2) 0%, transparent 60%);
+    animation: bgShift 8s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  @keyframes bgShift {
+    0% { opacity: 1; }
+    100% { opacity: 0.6; filter: hue-rotate(30deg); }
+  }
+
+  .floating-emojis {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .float-em {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+  .card {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 248, 240, 0.92);
+    backdrop-filter: blur(20px);
+    border-radius: 32px;
+    padding: 50px 45px 40px;
+    max-width: 600px;
+    width: 92vw;
+    min-height: 480px;
+    box-shadow: 0 30px 80px rgba(61,28,58,0.25), 0 0 0 2px rgba(255,107,138,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .card.shake { animation: cardShake 0.5s ease; }
+  .card.bounce-in { animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .card.slide-left { animation: slideLeft 0.5s ease; }
+  .card.spin-enter { animation: spinEnter 0.6s ease; }
+  .card.wobble { animation: wobbleAnim 0.8s ease; }
+
+  @keyframes cardShake {
+    0%,100%{transform:translateX(0)} 15%{transform:translateX(-12px) rotate(-2deg)} 30%{transform:translateX(12px) rotate(2deg)} 45%{transform:translateX(-8px) rotate(-1deg)} 60%{transform:translateX(8px) rotate(1deg)} 75%{transform:translateX(-4px)} 
+  }
+  @keyframes bounceIn {
+    0%{transform:scale(0.3) translateY(100px);opacity:0} 60%{transform:scale(1.05);opacity:1} 80%{transform:scale(0.95)} 100%{transform:scale(1)}
+  }
+  @keyframes slideLeft {
+    0%{transform:translateX(-120%) rotate(-5deg);opacity:0} 100%{transform:translateX(0) rotate(0);opacity:1}
+  }
+  @keyframes spinEnter {
+    0%{transform:scale(0) rotate(-180deg);opacity:0} 100%{transform:scale(1) rotate(0);opacity:1}
+  }
+  @keyframes wobbleAnim {
+    0%,100%{transform:rotate(0)} 20%{transform:rotate(-5deg) scale(1.05)} 40%{transform:rotate(5deg) scale(1.05)} 60%{transform:rotate(-3deg)} 80%{transform:rotate(3deg)}
+  }
+
+  .page { display: none; width: 100%; flex-direction: column; align-items: center; gap: 18px; }
+  .page.active { display: flex; }
+
+  .page-number {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-size: 12px;
+    color: var(--rose);
+    font-weight: 700;
+    background: rgba(255,107,138,0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .abaya-girl {
+    font-size: 5rem;
+    line-height: 1;
+    filter: drop-shadow(0 4px 12px rgba(255,107,138,0.4));
+    animation: girlBounce 2s ease-in-out infinite;
+    display: block;
+  }
+
+  @keyframes girlBounce {
+    0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-10px) rotate(3deg)}
+  }
+
+  .greeting {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    background: linear-gradient(135deg, var(--rose), var(--lavender), var(--peach));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%,100%{filter:brightness(1)} 50%{filter:brightness(1.2)}
+  }
+
+  .quality-emoji { font-size: 4rem; animation: spinPulse 1.5s ease-in-out infinite; }
+  @keyframes spinPulse { 0%,100%{transform:scale(1) rotate(0)} 50%{transform:scale(1.2) rotate(10deg)} }
+
+  .quality-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.2rem;
+    color: var(--deep);
+    text-shadow: 2px 2px 0px rgba(255,107,138,0.3);
+  }
+
+  .message-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.15rem;
+    color: #4a2040;
+    line-height: 1.8;
+    max-width: 480px;
+    font-weight: 600;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(255,107,138,0.08), rgba(201,166,228,0.08));
+    border-radius: 18px;
+    border-left: 4px solid var(--rose);
+  }
+
+  .hearts-container { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .heart { font-size: 1.6rem; animation: heartPop 1s ease-in-out infinite; }
+  .heart:nth-child(2){animation-delay:.15s}
+  .heart:nth-child(3){animation-delay:.3s}
+  .heart:nth-child(4){animation-delay:.45s}
+  .heart:nth-child(5){animation-delay:.6s}
+  @keyframes heartPop { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3) translateY(-5px)} }
+
+  /* Book animation */
+  .book-wrap { position: relative; width: 200px; height: 160px; margin: 10px auto; }
+  .book {
+    width: 200px; height: 160px;
+    position: relative;
+    perspective: 800px;
+  }
+  .book-cover {
+    width: 100px; height: 160px;
+    background: linear-gradient(135deg, var(--rose), var(--lavender));
+    border-radius: 4px 12px 12px 4px;
+    position: absolute;
+    left: 100px; top: 0;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    animation: openBook 3s ease-in-out infinite alternate;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 4px 4px 20px rgba(255,107,138,0.4);
+  }
+  .book-pages {
+    width: 200px; height: 160px;
+    background: linear-gradient(to right, #f0e8ff, #fff8f0);
+    border-radius: 4px 12px 12px 4px;
+    position: absolute;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; color: var(--deep); font-weight: 700;
+    padding: 20px; text-align: center;
+    line-height: 1.5;
+    box-shadow: inset 2px 0 8px rgba(0,0,0,0.1);
+  }
+  @keyframes openBook {
+    0%{transform:rotateY(0deg)}
+    100%{transform:rotateY(-150deg)}
+  }
+
+  /* Final page hearts */
+  .final-hearts { position: relative; width: 180px; height: 120px; }
+  .final-heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatHeart 2s ease-in-out infinite;
+  }
+  .final-heart:nth-child(1){left:20px;top:40px;animation-delay:0s}
+  .final-heart:nth-child(2){left:70px;top:10px;animation-delay:0.3s;font-size:2.8rem}
+  .final-heart:nth-child(3){left:120px;top:40px;animation-delay:0.6s}
+  .final-heart:nth-child(4){left:40px;top:75px;animation-delay:0.9s;font-size:1.4rem}
+  .final-heart:nth-child(5){left:100px;top:75px;animation-delay:1.2s;font-size:1.4rem}
+  @keyframes floatHeart {
+    0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-15px) scale(1.2)}
+  }
+
+  /* Navigation */
+  .nav-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    width: 100%;
+  }
+
+  .btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex; align-items: center; gap: 8px;
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn::after {
+    content:''; position:absolute; inset:0;
+    background:rgba(255,255,255,0.2);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform 0.3s ease;
+  }
+  .btn:hover::after{transform:scaleX(1)}
+  .btn:hover{transform:scale(1.08) translateY(-2px)}
+  .btn:active{transform:scale(0.96)}
+
+  .btn-start {
+    background: linear-gradient(135deg, var(--rose), var(--accent));
+    color: white;
+    font-size: 1.1rem;
+    padding: 16px 40px;
+    box-shadow: 0 8px 25px rgba(255,107,138,0.5);
+    animation: startPulse 2s ease-in-out infinite;
+  }
+  @keyframes startPulse {
+    0%,100%{box-shadow:0 8px 25px rgba(255,107,138,0.5)}
+    50%{box-shadow:0 12px 40px rgba(255,107,138,0.8), 0 0 0 8px rgba(255,107,138,0.15)}
+  }
+
+  .btn-next {
+    background: linear-gradient(135deg, var(--rose), var(--lavender));
+    color: white;
+    box-shadow: 0 6px 20px rgba(255,107,138,0.4);
+  }
+  .btn-prev {
+    background: linear-gradient(135deg, #e8e0f0, #f0e8ff);
+    color: var(--deep);
+    box-shadow: 0 4px 15px rgba(201,166,228,0.4);
+  }
+
+  /* Popup */
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .popup {
+    background: linear-gradient(135deg, #fff0f5, #f5e8ff);
+    border: 3px solid var(--rose);
+    border-radius: 24px;
+    padding: 24px 36px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--deep);
+    text-align: center;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 20px 60px rgba(255,107,138,0.4), 0 0 0 0 rgba(255,107,138,0.3);
+    max-width: 380px;
+    pointer-events: none;
+  }
+
+  .popup.show {
+    transform: scale(1);
+    opacity: 1;
+    animation: popupPulse 0.5s ease 0.4s;
+  }
+  @keyframes popupPulse {
+    0%{box-shadow:0 20px 60px rgba(255,107,138,0.4),0 0 0 0 rgba(255,107,138,0.4)}
+    100%{box-shadow:0 20px 60px rgba(255,107,138,0.4),0 0 0 20px rgba(255,107,138,0)}
+  }
+
+  .popup-emoji { font-size: 2.5rem; display: block; margin-bottom: 8px; }
+
+  /* Progress dots */
+  .progress-dots {
+    display: flex; gap: 6px; justify-content: center; margin-top: 4px;
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,107,138,0.25);
+    transition: all 0.3s ease;
+  }
+  .dot.active { background: var(--rose); transform: scale(1.4); }
+  .dot.done { background: var(--lavender); }
+
+  /* Stars decoration */
+  .stars { font-size: 1.2rem; letter-spacing: 4px; }
+
+  /* Confetti burst on advance */
+  .confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 999;
+    animation: confettiFall 1.5s ease-out forwards;
+  }
+  @keyframes confettiFall {
+    0%{opacity:1;transform:translate(0,0) rotate(0deg) scale(1)}
+    100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(720deg) scale(0.3)}
+  }
+
+  /* Jealous page special */
+  .jealous-flame { font-size: 3rem; animation: flameDance 0.5s ease-in-out infinite alternate; }
+  @keyframes flameDance { 0%{transform:scale(1) rotate(-5deg)} 100%{transform:scale(1.2) rotate(5deg)} }
+
+  /* Eyes sparkle */
+  .sparkle-eyes { font-size: 3.5rem; animation: eyeSparkle 1s ease-in-out infinite; }
+  @keyframes eyeSparkle {
+    0%,100%{filter:drop-shadow(0 0 5px gold)} 50%{filter:drop-shadow(0 0 20px gold) drop-shadow(0 0 40px orange)}
+  }
+
+  /* Subtitle style */
+  .subtitle {
+    font-size: 0.95rem;
+    color: #9b7aaa;
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .card { padding: 35px 25px 30px; }
+    .greeting { font-size: 2.2rem; }
+    .message-text { font-size: 1rem; }
+    .quality-title { font-size: 1.8rem; }
+    .btn { padding: 10px 18px; font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="floating-emojis" id="floatEmojis"></div>
+
+<div class="card" id="mainCard">
+
+  <!-- Page 0: Start -->
+  <div class="page active" id="page-0">
+    <span class="abaya-girl">🧕</span>
+    <h1 class="greeting">Hello Umaima! 💝</h1>
+    <p class="subtitle">Ek special message hai tumhare liye...</p>
+    <div class="hearts-container">
+      <span class="heart">💖</span><span class="heart">💕</span><span class="heart">💗</span><span class="heart">💓</span><span class="heart">💞</span>
+    </div>
+    <button class="btn btn-start" onclick="startExperience()">
+      🌸 Start Karo! 🌸
+    </button>
+  </div>
+
+  <!-- Page 1: Hello Umaima -->
+  <div class="page" id="page-1">
+    <div class="page-number">1 / 15</div>
+    <span class="abaya-girl">🧕</span>
+    <h1 class="greeting">Hello Umaima! 🌸</h1>
+    <p class="message-text">Ye message sirf aur sirf tumhare liye hai... tumhara best friend hoon na main? To suno... 👂✨</p>
+    <div class="stars">⭐✨🌟✨⭐</div>
+    <div class="nav-row">
+      <button class="btn btn-next" onclick="goNext()">Agla 👉🎀</button>
+    </div>
+    <div class="progress-dots" id="dots1"></div>
+  </div>
+
+  <!-- Page 2: Beautiful -->
+  <div class="page" id="page-2">
+    <div class="page-number">2 / 15</div>
+    <span class="quality-emoji">😍</span>
+    <h2 class="quality-title">Beautiful ✨</h2>
+    <p class="message-text">Tum boht zyada khubsurat ho Umaima... seriously! Jab dekho tab dil karein sirf dekhtey rahein 🥺💕</p>
+    <div class="hearts-container"><span class="heart">💝</span><span class="heart">🌸</span><span class="heart">💖</span></div>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 💕</button>
+    </div>
+    <div class="progress-dots" id="dots2"></div>
+  </div>
+
+  <!-- Page 3: Loving -->
+  <div class="page" id="page-3">
+    <div class="page-number">3 / 15</div>
+    <span class="quality-emoji">🥰</span>
+    <h2 class="quality-title">Loving 💗</h2>
+    <p class="message-text">Tumhara dusron k lia pyar aur muhabbat... waqai mein dil ko lgta hai. Tum jab bhi kisi ki parwah karti ho, sach mein bahut bura lagta hai 🤍</p>
+    <div class="hearts-container"><span class="heart">💗</span><span class="heart">🫶</span><span class="heart">💓</span></div>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 🌺</button>
+    </div>
+    <div class="progress-dots" id="dots3"></div>
+  </div>
+
+  <!-- Page 4: Caring -->
+  <div class="page" id="page-4">
+    <div class="page-number">4 / 15</div>
+    <span class="quality-emoji">🤗</span>
+    <h2 class="quality-title">Caring 💞</h2>
+    <p class="message-text">Tum itni caring ho... dusron ki fikr karna, unka khayal rakhna — ye sab tumhara special talent hai. Boht achi hoti ho tum dusron k lia 🌼</p>
+    <div class="hearts-container"><span class="heart">💞</span><span class="heart">🌼</span><span class="heart">🤍</span></div>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 🌷</button>
+    </div>
+    <div class="progress-dots" id="dots4"></div>
+  </div>
+
+  <!-- Page 5: Nice -->
+  <div class="page" id="page-5">
+    <div class="page-number">5 / 15</div>
+    <span class="quality-emoji">😇</span>
+    <h2 class="quality-title">Nice 🌟</h2>
+    <p class="message-text">Tum really bahut nice ho! Seedhi baat, achhi soch, pyara dil... aisi insaan bahut kam milti hain duniya mein 🌟</p>
+    <div class="hearts-container"><span class="heart">🌟</span><span class="heart">✨</span><span class="heart">🌸</span></div>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 🎀</button>
+    </div>
+    <div class="progress-dots" id="dots5"></div>
+  </div>
+
+  <!-- Page 6: Pretty -->
+  <div class="page" id="page-6">
+    <div class="page-number">6 / 15</div>
+    <span class="quality-emoji">🌹</span>
+    <h2 class="quality-title">Pretty 🌹</h2>
+    <p class="message-text">Honestly? Tum itni pretty ho ke pata nahi kya bolun... sirf dekhtey rahein 😶‍🌫️💕 Aur abaya mein toh aur bhi zyada 🧕✨(is k ilawa tumhen dekha hi kahan hai) </p>
+    <div class="hearts-container"><span class="heart">🌹</span><span class="heart">💋</span><span class="heart">🌸</span></div>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 🔥</button>
+    </div>
+    <div class="progress-dots" id="dots6"></div>
+  </div>
+
+  <!-- Page 7 -->
+  <div class="page" id="page-7">
+    <div class="page-number">7 / 15</div>
+    <span style="font-size:3.5rem">😈😂</span>
+    <p class="message-text">mera boht dil krta tumhen tng kroon but tum ghussa ho jati ho</p>
+    <p class="subtitle">Isliye bas sochta rehta hun... 😅</p>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 👀</button>
+    </div>
+    <div class="progress-dots" id="dots7"></div>
+  </div>
+
+  <!-- Page 8 -->
+  <div class="page" id="page-8">
+    <div class="page-number">8 / 15</div>
+    <span style="font-size:3.5rem">😒🙄</span>
+    <p class="message-text">mujha acha lgta hai jb tum mujha dusra lrkon ka naam ya tareef kr k tng krti ho</p>
+    <p class="subtitle">Ha bilkul. Bahut "acha" lagta hai 😒🙃</p>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 😤</button>
+    </div>
+    <div class="progress-dots" id="dots8"></div>
+  </div>
+
+  <!-- Page 9: Jealous -->
+  <div class="page" id="page-9">
+    <div class="page-number">9 / 15</div>
+    <span class="jealous-flame">🔥😤🔥</span>
+    <p class="message-text">but reality ma jealous hota boht ziada k tum dusra lrkon ka naam ya tareef kr k mujha tng krti ho,pta nhi kiuu ma boht ziada jealos hota hoon is sa</p>
+    <p class="subtitle">Jealousy level: 📊📊📊📊📊 OFF THE CHARTS</p>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 😅</button>
+    </div>
+    <div class="progress-dots" id="dots9"></div>
+  </div>
+
+  <!-- Page 10 -->
+  <div class="page" id="page-10">
+    <div class="page-number">10 / 15</div>
+    <span style="font-size:3.5rem">😏😈</span>
+    <p class="message-text">mera boht dil krta tumhen b shadeeeeeeeeeeeeeeeed tng krna ka but tum ghussa ho jati ho(i know its repeating) </p>
+    <p class="subtitle">Ek din zaroor karunga 😈 (just kidding... ya nahi?) 😂</p>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 🤭</button>
+    </div>
+    <div class="progress-dots" id="dots10"></div>
+  </div>
+
+  <!-- Page 11 -->
+  <div class="page" id="page-11">
+    <div class="page-number">11 / 15</div>
+    <span style="font-size:3rem">🤔💭😅</span>
+    <p class="message-text">mera ya b dil krta k tumhen jealous feel krwaoon dusri lrkion ka naam la kr like Ayesha and Misha ka but tum un sa b jealous nhi hoti,kisi aur ki tareef b kr doon us sa b nhi hoti</p>
+    <p class="subtitle">Tum toh impossible ho Umaima 😩</p>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 👁️</button>
+    </div>
+    <div class="progress-dots" id="dots11"></div>
+  </div>
+
+  <!-- Page 12 -->
+  <div class="page" id="page-12">
+    <div class="page-number">12 / 15</div>
+    <span class="sparkle-eyes">👁️✨👁️</span>
+    <p class="message-text">yr mujha tum boht achi lgti ho like tumhari ankhen 👀 ufffff yr</p>
+    <p class="subtitle">"ufffff yr" 😂💕</p>
+    <div class="hearts-container"><span class="heart">✨</span><span class="heart">💫</span><span class="heart">⭐</span></div>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 🎵</button>
+    </div>
+    <div class="progress-dots" id="dots12"></div>
+  </div>
+
+  <!-- Page 13 -->
+  <div class="page" id="page-13">
+    <div class="page-number">13 / 15</div>
+    <span style="font-size:3rem">🎵👶✨</span>
+    <p class="message-text">tumhari awaz to mujha boht achi lgti hai</p>
+    <p class="message-text" style="margin-top:10px">tumhari bchon jasi hrkten krna like choti choti baton pr tension lena b acha lgta hai</p>
+    <p class="subtitle">Sach mein... boht cute ho tum 🥹</p>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Agla 📚</button>
+    </div>
+    <div class="progress-dots" id="dots13"></div>
+  </div>
+
+  <!-- Page 14: Book animation -->
+  <div class="page" id="page-14">
+    <div class="page-number">14 / 15</div>
+    <div class="book-wrap">
+      <div class="book">
+        <div class="book-pages">📖<br>Kal padhna<br>sath baith ke!</div>
+        <div class="book-cover">📚</div>
+      </div>
+    </div>
+    <p class="message-text">kl prhen ga sath baith k tension na lo</p>
+    <p class="subtitle">Promise! 🤝 Sath padhunga, tension mat lo! 😊</p>
+    <div class="nav-row">
+      <button class="btn btn-prev" onclick="goPrev()">⬅️ Pichla</button>
+      <button class="btn btn-next" onclick="goNext()">Last one! 🎉</button>
+    </div>
+    <div class="progress-dots" id="dots14"></div>
+  </div>
+
+  <!-- Page 15: Final -->
+  <div class="page" id="page-15">
+    <div class="page-number">15 / 15</div>
+    <div class="final-hearts">
+      <span class="final-heart">💖</span>
+      <span class="final-heart">💕</span>
+      <span class="final-heart">💗</span>
+      <span class="final-heart">💓</span>
+      <span class="final-heart">💞</span>
+    </div>
+    <h1 class="greeting" style="font-size:2.5rem">bye bestie! 🧕💝</h1>
+    <p class="message-text">Umaima Shah, tum really the best bestie ho! Kabhi change mat hona please 🥺 Hamesha aise hi cute aur bubbly raho 💕</p>
+    <div class="hearts-container">
+      <span class="heart">💖</span><span class="heart">🌸</span><span class="heart">💕</span><span class="heart">✨</span><span class="heart">💝</span>
+    </div>
+    <button class="btn btn-prev" onclick="goPrev()" style="margin-top:8px">⬅️ Dobara dekho</button>
+    <div class="progress-dots" id="dots15"></div>
+  </div>
+
+</div>
+
+<!-- Popup -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup" id="popup">
+    <span class="popup-emoji" id="popupEmoji">😂</span>
+    <div id="popupText">chalo g chlen</div>
+  </div>
+</div>
+
+<script>
+  const TOTAL_PAGES = 15;
+  let currentPage = 0;
+  let isAnimating = false;
+
+  const animations = ['bounce-in','slide-left','spin-enter','wobble','bounce-in','slide-left'];
+  const floatEmojis = ['🌸','💕','✨','🌺','💖','⭐','🎀','💫','🌷','💝','🌟','🧕'];
+
+  // Create floating emojis
+  const floatContainer = document.getElementById('floatEmojis');
+  for(let i = 0; i < 18; i++) {
+    const em = document.createElement('div');
+    em.className = 'float-em';
+    em.textContent = floatEmojis[Math.floor(Math.random() * floatEmojis.length)];
+    em.style.left = Math.random() * 100 + 'vw';
+    em.style.animationDuration = (6 + Math.random() * 8) + 's';
+    em.style.animationDelay = (Math.random() * 10) + 's';
+    em.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+    floatContainer.appendChild(em);
+  }
+
+  function showPopup(text, emoji) {
+    const overlay = document.getElementById('popupOverlay');
+    const popup = document.getElementById('popup');
+    const popupText = document.getElementById('popupText');
+    const popupEmoji = document.getElementById('popupEmoji');
+    popupText.textContent = text;
+    popupEmoji.textContent = emoji;
+    overlay.style.pointerEvents = 'all';
+    popup.classList.add('show');
+    return new Promise(resolve => {
+      setTimeout(() => {
+        popup.classList.remove('show');
+        overlay.style.pointerEvents = 'none';
+        resolve();
+      }, 3000);
+    });
+  }
+
+  function spawnConfetti() {
+    const colors = ['#FF6B8A','#FFB3C1','#C9A6E4','#FFD700','#87CEEB','#A8E6CF'];
+    for(let i = 0; i < 25; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti-piece';
+      c.style.left = (30 + Math.random() * 40) + 'vw';
+      c.style.top = (30 + Math.random() * 40) + 'vh';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      c.style.setProperty('--dx', (Math.random() * 200 - 100) + 'px');
+      c.style.setProperty('--dy', (Math.random() * 200 - 100) + 'px');
+      c.style.animationDelay = Math.random() * 0.3 + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 2000);
+    }
+  }
+
+  function showPage(num) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const page = document.getElementById('page-' + num);
+    if(page) page.classList.add('active');
+    updateDots(num);
+  }
+
+  function updateDots(num) {
+    for(let i = 1; i <= TOTAL_PAGES; i++) {
+      const d = document.getElementById('dots' + i);
+      if(!d) continue;
+      d.innerHTML = '';
+      for(let j = 1; j <= TOTAL_PAGES; j++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot' + (j === num ? ' active' : j < num ? ' done' : '');
+        d.appendChild(dot);
+      }
+    }
+  }
+
+  function animateCard(anim) {
+    const card = document.getElementById('mainCard');
+    card.classList.remove(...animations, 'shake', 'bounce-in', 'slide-left', 'spin-enter', 'wobble');
+    void card.offsetWidth;
+    card.classList.add(anim);
+    setTimeout(() => card.classList.remove(anim), 800);
+  }
+
+  function startExperience() {
+    currentPage = 1;
+    animateCard('bounce-in');
+    showPage(1);
+    spawnConfetti();
+  }
+
+  async function goNext() {
+    if(isAnimating || currentPage >= TOTAL_PAGES) return;
+    isAnimating = true;
+    const nextAnims = ['bounce-in','slide-left','spin-enter','wobble'];
+    const nextAnim = nextAnims[currentPage % nextAnims.length];
+    const popupPromise = showPopup('chalo g chlen 🎉', '🚀');
+    await popupPromise;
+    currentPage++;
+    animateCard(nextAnim);
+    showPage(currentPage);
+    spawnConfetti();
+    isAnimating = false;
+  }
+
+  async function goPrev() {
+    if(isAnimating) return;
+    isAnimating = true;
+    animateCard('shake');
+    await showPopup('nhi g aaga jana pra ga 😂', '🙅‍♀️');
+    isAnimating = false;
+  }
+
+  showPage(0);
+</script>
+</body>
+</html>
